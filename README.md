@@ -1,7 +1,7 @@
 ## Sales_performance
 
 ## Sales Performance Overview
-Steady sales declined over the past 3 years got my company woried. As a data analyst I'm tasked to anaylze a three-year sales historical data. 
+A company has experienced a steady decline in sales over the past three years, which has raised concerns. As a data analyst, I’ve been tasked with analyzing three years of historical sales data to uncover insights and identify potential causes
 
 ## Objective
 To design and develop a dynamic, visually engaging, and informative Sales Dashboard in Excel that empowers stakeholders to monitor performance, identify trends, and make data-driven decisions across products, regions, and timeframes.
