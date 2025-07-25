@@ -1,7 +1,10 @@
 ## Sales_performance
 
 ## Sales Performance Overview
-Steady sales declined over the past 3 years got my company woried. As a data analyst I'm tasked to anaylze a three-year sales historical data and develop a compelling dashboard that will help managment make informed decisions to reverse sales decline
+Steady sales declined over the past 3 years got my company woried. As a data analyst I'm tasked to anaylze a three-year sales historical data. 
+
+## Objective
+To design and develop a dynamic, visually engaging, and informative Sales Dashboard in Excel that empowers stakeholders to monitor performance, identify trends, and make data-driven decisions across products, regions, and timeframes.
 
 ## Business Questions:
 •	How has sales performed over the past years?
@@ -11,7 +14,7 @@ Steady sales declined over the past 3 years got my company woried. As a data ana
 •	Can we predict future sales based on historical trends coupling strategic marketing implementations?
    
 ## Data Description
-This fisctional projects data was sourced from Kaggle, structured in a .csv file. 
+This is a e-commerce data  sourced from Kaggle, structured in a .csv file. 
 
 ## Plan: 
 •	Use power query to clean and process data.
