@@ -14,7 +14,7 @@ To design and develop a dynamic, visually engaging, and informative Sales Dashbo
 •	Can we predict future sales based on historical trends coupling strategic marketing implementations?
    
 ## Data Description
-This is a e-commerce data  sourced from Kaggle, structured in a .csv file. 
+This is an e-commerce data  sourced from Kaggle and structured in a .csv file. 
 
 ## Plan: 
 •	Use power query to clean and process data.
