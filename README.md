@@ -1,7 +1,5 @@
-## Sales_performance
-
 ## Sales Performance Overview
-A company has experienced a steady decline in sales over the past three years, which has raised concerns. As a data analyst, I was tasked with analyzing three years of historical sales data to uncover insights and identify potential causes
+A fictional company has experienced a steady decline in sales over the past three years, which has raised concerns. As a data analyst, I was tasked with analyzing three years of historical sales data to uncover insights and identify potential causes
 
 ## Objective
 To design and develop a dynamic, visually engaging, and informative Sales Dashboard in Excel that empowers stakeholders to monitor performance, identify trends, and make data-driven decisions across products, regions, and timeframes.
@@ -24,31 +22,33 @@ This is an e-commerce data  sourced from Kaggle and structured in a .csv file.
 ## Cleaning Steps: 
 Loaded the dataset into power query
 
-•	Rename some columns
+•	*Rename some columns*
 
-•	Remove duplicates
+•	*Remove duplicates*
 
-•	Remove NA values in critical columns
+•	*Remove NA values in critical columns*
 
-•	Drop some columns
+•	*Drop some columns*
 
-•	Create new columns (profit, Quarter etc.)
+•	*Create new columns (profit, Quarter etc.)*
 
-•	Format cell data
+•	*Format cell data*
+
 <img width="959" height="486" alt="data_inspection" src="https://github.com/user-attachments/assets/83918869-a153-4767-ae6f-c48a9b74882a" />
 
 ## Exploratory Data Analysis (EDA)
-- Histogram was employed during the EDA stage to visualize data spread, identify anomalies, and support data cleaning decisions. 
+- *Histogram was employed during the EDA stage to visualize data spread, identify anomalies, and support data cleaning decisions.* 
 - Key performance indicators (KPIs) including total sales, total profit, total quantity and year-over-year(YoY%) was established.
+  
 <img width="958" height="487" alt="eda" src="https://github.com/user-attachments/assets/2339d769-d0fe-485c-8c59-2ed925d08b53" />
 
 ## Dashboard:  
 A dynamic dashboard that lists and describe key plots: line chart,bar chart and histogram.
 #### Target Audience
-- Sales Managers: To monitor team and individual performance.
-- Head of Sales: To assess strategic sales performance and ROI.
-- Regional Sales Reps: To understand their performance and areas of opportunity.
-- Marketing Team: To identify campaign impact on sales.
+- *Sales Managers: To monitor team and individual performance.*
+- *Head of Sales: To assess strategic sales performance and ROI.*
+- *Regional Sales Reps: To understand their performance and areas of opportunity.*
+- *Marketing Team: To identify campaign impact on sales.*
 
 <img width="796" height="377" alt="Dashboard" src="https://github.com/user-attachments/assets/3975d5b4-9719-4123-b969-b10a6e685441" />
 
