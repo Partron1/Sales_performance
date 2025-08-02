@@ -1,5 +1,5 @@
 ## Sales Performance Overview
-A fictional company has experienced a steady decline in sales over the past three years, which has raised concerns. As a data analyst, I was tasked with analyzing three years of historical sales data to uncover insights and identify potential causes
+Sales experienced a steady decline in over the past three years, which has raised concerns. As a data analyst, I was tasked with analyzing three years of historical sales data to uncover insights and identify potential causes
 
 ## Objective
 To design and develop a dynamic, visually engaging, and informative Sales Dashboard in Excel that empowers stakeholders to monitor performance, identify trends, and make data-driven decisions across products, regions, and timeframes.
@@ -15,27 +15,30 @@ To design and develop a dynamic, visually engaging, and informative Sales Dashbo
 This is an e-commerce data  sourced from Kaggle and structured in a .csv file. 
 
 ## Plan 
-•	Use power query to clean and process data.
+•	Use excel and power query to clean and process data.
 
 •	Use Excel to analyzed and design a compelling dashboard.
 
 ## Cleaning Steps 
 ## In excel;
-•	*Rename some columns*
 
-•	*Remove duplicates*
+- *Rename some columns*
 
-•	*Remove NA values in critical columns*
+- *Remove duplicates*
 
-•	*Drop some columns*
+- *Remove NA values in critical columns*
 
-•	*Create new columns (profit, Quarter etc.)*
+- *Drop some columns*
 
+- *Create new columns (profit, Quarter etc.)*
 
+- *Apply conditional formating to understand our dataset*
+  
 ## Loaded the dataset into power query;
 
 ```bigquery claining steps
-= Excel.CurrentWorkbook(){[Name="Table1"]}[Content]
+# Define dataset
+= Excel.CurrentWorkbook(){[Name="Sales"]}[Content]
 
 # Transformation
 = Table.TransformColumnTypes(Source,{{"name", type text}, {"company", type text}, {"city", type text}, {"country", type text}, {"territory", type text}, {"product", type text}, {"deal_size", type text}, {"order_no", Int64.Type}, {"oder_line", Int64.Type}, {"quantity_ordered", Int64.Type}, {"unit_price", Currency.Type}, {"msrp", Currency.Type}, {"sales ", Currency.Type}, {"profit", Currency.Type}, {"margin", Currency.Type}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"month", type text}, {"month_id", Int64.Type}, {"status", type text}})
@@ -73,7 +76,7 @@ This is an e-commerce data  sourced from Kaggle and structured in a .csv file.
 A dynamic dashboard that lists and describe key plots: line chart,bar chart and histogram.
 #### Target Audience
 - *Sales Managers: To monitor team and individual performance.*
-- *Head of Sales: To assess strategic sales performance and ROI.*
+- *Head of Sales: To assess strategic sales performance.*
 - *Regional Sales Reps: To understand their performance and areas of opportunity.*
 - *Marketing Team: To identify campaign impact on sales.*
 
@@ -86,7 +89,9 @@ A dynamic dashboard that lists and describe key plots: line chart,bar chart and 
 ## Business Impact  
 - With this informations, stakeholders can have better insights into the business performance, save time, reduce cost and device trategies to reverse this decline.
 
-
+## Key Recommendations
+- Items such as classic cars should be focused more to generate more revenue.
+- Cut or negotiate underperforming channels and reallocate budget into to ROI vehicle campaigns or high-traffic partners.
 
 
 
