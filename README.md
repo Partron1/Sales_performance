@@ -20,8 +20,7 @@ This is an e-commerce data  sourced from Kaggle and structured in a .csv file.
 •	Use Excel to analyzed and design a compelling dashboard.
 
 ## Cleaning Steps 
-Loaded the dataset into power query
-
+## In excel;
 •	*Rename some columns*
 
 •	*Remove duplicates*
@@ -32,7 +31,35 @@ Loaded the dataset into power query
 
 •	*Create new columns (profit, Quarter etc.)*
 
-•	*Format cell data*
+
+## Loaded the dataset into power query;
+
+```bigquery claining steps
+= Excel.CurrentWorkbook(){[Name="Table1"]}[Content]
+
+# Transformation
+= Table.TransformColumnTypes(Source,{{"name", type text}, {"company", type text}, {"city", type text}, {"country", type text}, {"territory", type text}, {"product", type text}, {"deal_size", type text}, {"order_no", Int64.Type}, {"oder_line", Int64.Type}, {"quantity_ordered", Int64.Type}, {"unit_price", Currency.Type}, {"msrp", Currency.Type}, {"sales ", Currency.Type}, {"profit", Currency.Type}, {"margin", Currency.Type}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"month", type text}, {"month_id", Int64.Type}, {"status", type text}})
+= Table.TransformColumns(#"Changed Type", {{"quarter", each "Q" & Text.From(_,"en-GH"), type text}})
+= Table.TransformColumns(#"Added Prefix",{{"month",each Text.Start(_, 3), type text}})
+
+# Remove columns
+= Table.RemoveColumns(#"Extracted First Characters",{"month_id", "order_no", "oder_line"})
+= Table.RenameColumns(#"Removed Columns",{{"quantity_ordered", "quantity"}})
+= Table.SelectRows(#"Renamed Columns", each ([year] <> null))
+
+#Replace values
+=Table.ReplaceValue(#"FilteredRows","VintageCars","Vintage Car",Replacer.ReplaceText,{"product"})
+=Table.ReplaceValue(#"Replaced Value","Planes","Plane",Replacer.ReplaceText,{"product"})
+=Table.ReplaceValue(#"ReplacedValue1","ClassicCars","ClassicCar”, Replacer.ReplaceText,{"product"})
+=Table.ReplaceValue(#"ReplacedValue2","Motorcycles","Motorcycle",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value3","Ships","Ship",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value4","Trains","Train",Replacer.ReplaceText,{"product"})
+=Table.ReplaceValue(#"Replaced Value5","Trucks And Buses","Truck & Bus",Replacer.ReplaceText,{"product"})
+= Table.SelectRows(#"Replaced Value6", each true)
+= Table.ReplaceValue(#"Filtered Rows1","Nyc","New York City",Replacer.ReplaceText,{"city"})
+= Table.SelectRows(#"Replaced Value7", each true)
+
+```
 
 <img width="959" height="486" alt="data_inspection" src="https://github.com/user-attachments/assets/83918869-a153-4767-ae6f-c48a9b74882a" />
 
