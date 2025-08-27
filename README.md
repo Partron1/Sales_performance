@@ -20,49 +20,94 @@ This is an e-commerce data  sourced from Kaggle and structured in a .csv file.
 •	Use Excel to analyzed and design a compelling dashboard.
 
 ### Cleaning Steps 
-### In excel;
 
-- *Rename some columns*
 
-- *Remove duplicates*
-
-- *Remove NA values in critical columns*
-
-- *Drop some columns*
-
-- *Create new columns (profit, Quarter etc.)*
-
-- *Apply conditional formating to understand our dataset*
   
 ### Loaded the dataset into power query;
 
 ```bigquery claining steps
 # Define dataset
 = Excel.CurrentWorkbook(){[Name="Sales"]}[Content]
-
-# Transformation
-= Table.TransformColumnTypes(Source,{{"name", type text}, {"company", type text}, {"city", type text}, {"country", type text}, {"territory", type text}, {"product", type text}, {"deal_size", type text}, {"order_no", Int64.Type}, {"oder_line", Int64.Type}, {"quantity_ordered", Int64.Type}, {"unit_price", Currency.Type}, {"msrp", Currency.Type}, {"sales ", Currency.Type}, {"profit", Currency.Type}, {"margin", Currency.Type}, {"year", Int64.Type}, {"quarter", Int64.Type}, {"month", type text}, {"month_id", Int64.Type}, {"status", type text}})
-= Table.TransformColumns(#"Changed Type", {{"quarter", each "Q" & Text.From(_,"en-GH"), type text}})
-= Table.TransformColumns(#"Added Prefix",{{"month",each Text.Start(_, 3), type text}})
-
-# Remove columns
-= Table.RemoveColumns(#"Extracted First Characters",{"month_id", "order_no", "oder_line"})
-= Table.RenameColumns(#"Removed Columns",{{"quantity_ordered", "quantity"}})
-= Table.SelectRows(#"Renamed Columns", each ([year] <> null))
-
-#Replace values
-=Table.ReplaceValue(#"FilteredRows","VintageCars","Vintage Car",Replacer.ReplaceText,{"product"})
-=Table.ReplaceValue(#"Replaced Value","Planes","Plane",Replacer.ReplaceText,{"product"})
-=Table.ReplaceValue(#"ReplacedValue1","ClassicCars","ClassicCar”, Replacer.ReplaceText,{"product"})
-=Table.ReplaceValue(#"ReplacedValue2","Motorcycles","Motorcycle",Replacer.ReplaceText,{"product"})
-= Table.ReplaceValue(#"Replaced Value3","Ships","Ship",Replacer.ReplaceText,{"product"})
-= Table.ReplaceValue(#"Replaced Value4","Trains","Train",Replacer.ReplaceText,{"product"})
-=Table.ReplaceValue(#"Replaced Value5","Trucks And Buses","Truck & Bus",Replacer.ReplaceText,{"product"})
-= Table.SelectRows(#"Replaced Value6", each true)
-= Table.ReplaceValue(#"Filtered Rows1","Nyc","New York City",Replacer.ReplaceText,{"city"})
-= Table.SelectRows(#"Replaced Value7", each true)
-
 ```
+```
+# Transformed data into data type
+= Table.TransformColumnTypes(Source,{{"ORDERNUMBER", Int64.Type}, {"QUANTITYORDERED", Int64.Type}, {"PRICEEACH", type number}, {"ORDERLINENUMBER", Int64.Type}, {"SALES", type number}, {"ORDERDATE", type text}, {"STATUS", type text}, {"QTR_ID", Int64.Type}, {"MONTH_ID", Int64.Type}, {"YEAR_ID", Int64.Type}, {"PRODUCTLINE", type text}, {"MSRP", Int64.Type}, {"PRODUCTCODE", type text}, {"CUSTOMERNAME", type text}, {"PHONE", type any}, {"ADDRESSLINE1", type text}, {"ADDRESSLINE2", type text}, {"CITY", type text}, {"STATE", type text}, {"POSTALCODE", type any}, {"COUNTRY", type text}, {"TERRITORY", type text}, {"CONTACTLASTNAME", type text}, {"CONTACTFIRSTNAME", type text}, {"DEALSIZE", type text}})
+```
+```
+# Removed errors
+= Table.RemoveRowsWithErrors(#"Changed Type")
+```
+```
+# Added extra columns to calculate cost price and profit
+= Table.AddColumn(#"Removed Errors", "cost_price", each [QUANTITYORDERED]*[PRICEEACH])
+= Table.AddColumn(#"Added Custom", "profit", each [SALES]-[cost_price])
+```
+```
+# Tranformed the quarter ID column by adding a text Q to make it meaningful
+= Table.TransformColumns(#"Added Custom1", {{"QTR_ID", each "Q" & Text.From(_, "en-GH"), type text}})
+```
+```
+# Changed the month ID into an actual month text
+= Table.AddColumn(#"Added Prefix", "month", each Date.ToText(#date(2025, [MONTH_ID], 1), "MMMM"))
+```
+```
+# Renamed columns
+=Table.RenameColumns(#"Added Custom2",{{"ORDERNUMBER", "order_no"}, {"QUANTITYORDERED", "quantity_ordered"}, {"PRICEEACH", "unit_price"}, {"ORDERLINENUMBER", "order_line_no"}, {"SALES", "sales"}, {"ORDERDATE", "date"}, {"STATUS", "delivery_status"}, {"QTR_ID", "quarter_id"}, {"MONTH_ID", "month_id"}, {"YEAR_ID", "year"}, {"PRODUCTLINE", "product"}, {"MSRP", "mrsp"}, {"PRODUCTCODE", "product_code"}, {"CUSTOMERNAME", "customer"}, {"PHONE", "phone"}, {"ADDRESSLINE1", "address1"}, {"ADDRESSLINE2", "address2"}, {"CITY", "city"}, {"STATE", "state"}, {"POSTALCODE", "post_code"}, {"COUNTRY", "country"}, {"TERRITORY", "territory"}, {"CONTACTLASTNAME", "contact_last_name"}, {"CONTACTFIRSTNAME", "contact_first_name"}, {"DEALSIZE", "deal_size"}})
+```
+```
+# Merged columns
+=Table.AddColumn(#"Renamed Columns", "contact_name", each [contact_last_name] & " " & [contact_first_name])
+```
+```
+# Removed columns
+= Table.RemoveColumns(#"Added Custom3",{"contact_last_name", "contact_first_name"})
+```
+```
+# Truncated month text to first 3 letters
+= Table.TransformColumns(#"Removed Columns", {{"month", each Text.Start(_, 3), type text}})
+```
+```
+# Reordered columns
+= Table.ReorderColumns(#"Extracted First Characters",{"contact_name", "customer", "order_no", "order_line_no", "quantity_ordered", "unit_price", "cost_price", "profit", "sales", "date", "year", "delivery_status", "quarter_id", "month_id", "product", "mrsp", "product_code", "phone", "address1", "address2", "city", "state", "post_code", "country", "territory", "deal_size", "month"})
+```
+```
+# Removed columns
+= Table.RemoveColumns(#"Reordered Columns",{"date", "month_id"})
+```
+```
+# Reordered columns
+=Table.ReorderColumns(#"Removed Columns1",{"customer", "contact_name", "product", "order_no", "order_line_no", "quantity_ordered", "unit_price", "cost_price", "sales", "profit", "year", "month", "quarter_id", "mrsp", "product_code", "phone", "address1", "address2", "post_code", "country", "territory", "state", "city", "delivery_status", "deal_size"})
+```
+```
+# Replaced values
+= Table.ReplaceValue(#"Reordered Columns1","Motorcycles","Motorcycle",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value","Classic Cars","Classic Car",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value1","Planes","Plane",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value1","Planes","Plane",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value2","Ships","Ship",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value3","Trucks and Buses","Truck & Bus",Replacer.ReplaceText,{"product"})
+= Table.ReplaceValue(#"Replaced Value4","Vintage Cars","Vintage Car",Replacer.ReplaceText,{"product"})
+```
+```
+# Tranformed columns
+= Table.TransformColumns(#"Replaced Value5",{{"customer", Text.Proper, type text}, {"contact_name", Text.Proper, type text}, {"product", Text.Proper, type text}, {"address1", Text.Proper, type text}, {"delivery_status", Text.Proper, type text}, {"deal_size", Text.Proper, type text}})
+=Table.TransformColumns(#"Capitalized Each Word",{{"customer", Text.Trim, type text}, {"contact_name", Text.Trim, type text}, {"product", Text.Trim, type text}, {"address1", Text.Trim, type text}, {"delivery_status", Text.Trim, type text}, {"deal_size", Text.Trim, type text}})
+= Table.TransformColumns(#"Trimmed Text",{{"customer", Text.Clean, type text}, {"contact_name", Text.Clean, type text}, {"product", Text.Clean, type text}, {"address1", Text.Clean, type text}, {"delivery_status", Text.Clean, type text}, {"deal_size", Text.Clean, type text}})
+= Table.TransformColumnTypes(#"Cleaned Text",{{"unit_price", Currency.Type}, {"cost_price", Currency.Type}, {"sales", Currency.Type}, {"profit", Currency.Type}})
+```
+```
+# Renamed columns
+= Table.RenameColumns(#"Changed Type1",{{"mrsp", "msrp"}})
+```
+```
+# Transformed column
+= Table.TransformColumnTypes(#"Renamed Columns1",{{"msrp", Currency.Type}})
+```
+```
+# Removed columns
+= Table.RemoveColumns(#"Changed Type2",{"phone", "address2", "address1"})
+```
+*Apply conditional formating to understand our dataset*
 
 <img width="959" height="486" alt="data_inspection" src="https://github.com/user-attachments/assets/83918869-a153-4767-ae6f-c48a9b74882a" />
 
