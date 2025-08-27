@@ -15,15 +15,12 @@ To design and develop a dynamic, visually engaging, and informative Sales Dashbo
 This is an e-commerce data  sourced from Kaggle and structured in a .csv file. 
 
 ### Plan 
-•	Use excel and power query to clean and process data.
+•	Data Cleaning/Processing: Excel and Power Query
 
-•	Use Excel to analyzed and design a compelling dashboard.
+•	Analysis and Dashboard design: Excel 
 
 ### Cleaning Steps 
-
-
-  
-### Loaded the dataset into power query;
+Loaded the dataset into power query;
 
 ```bigquery claining steps
 # Define dataset
