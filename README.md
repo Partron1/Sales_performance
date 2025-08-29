@@ -20,7 +20,7 @@ This is an e-commerce data  sourced from Kaggle and structured in a .csv file.
 •	Analysis and Dashboard design: Excel 
 
 ### Cleaning Steps 
-Loaded the dataset into power query;
+Power query;
 
 ```bigquery claining steps
 # Define dataset
@@ -104,13 +104,15 @@ Loaded the dataset into power query;
 # Removed columns
 = Table.RemoveColumns(#"Changed Type2",{"phone", "address2", "address1"})
 ```
-*Apply conditional formating to understand our dataset*
+**Conditional formating**
+
+This is a great way to better understand data by highlightining partterns, outliers or thresholds
 
 <img width="959" height="486" alt="data_inspection" src="https://github.com/user-attachments/assets/83918869-a153-4767-ae6f-c48a9b74882a" />
 
 ### Exploratory Data Analysis (EDA)
-- *Histogram was employed during the EDA stage to visualize data spread, identify anomalies, and support data cleaning decisions.* 
-- Key performance indicators (KPIs) including total sales, total profit, total quantity and year-over-year(YoY%) was established.
+
+- Key performance indicators (KPIs) including **total sales, total profit, total quantity and year-over-year(YoY%**) was established.
   
 <img width="958" height="487" alt="eda" src="https://github.com/user-attachments/assets/2339d769-d0fe-485c-8c59-2ed925d08b53" />
 
@@ -124,19 +126,86 @@ A dynamic dashboard that lists and describe key plots: line chart,bar chart and 
 
 <img width="796" height="377" alt="Dashboard" src="https://github.com/user-attachments/assets/3975d5b4-9719-4123-b969-b10a6e685441" />
 
+
+This dashboard provides a comprehensive view of overall sales performance through a structured layout that prioritizes key metrics for quick decision-making.
+
+**KPIs (Top-Left Corner):**
+- The most important metrics: **Sales ($10.0M), Profit ($1.7M), and Quantity ($99.1K)** are displayed prominently at the top-left. They are highlighted with bold text, distinct font colors, and year-over-year performance indicators to immediately show current performance and trends.
+
+**Sales Trend (Center):**
+- A line chart tracks **monthly sales performance**, helping to identify growth patterns, seasonality, and key peaks (e.g., November at $2.1M).
+
+**Sales by Item (Left Section):**
+- A horizontal bar chart breaks down sales by product category, showing that **Classic Cars ($3.9M)** are the top contributor, followed by Vintage Cars and Motorcycles.
+
+**Top 5 Selling Cities (Center-Bottom):**
+- A bar chart highlights leading markets, with **Madrid ($1.1M)** leading, followed by San Rafael and New York City.
+
+**Delivery Status (Top-Right):**
+- A progress breakdown of order fulfillment shows **93% of items shipped**, with minimal delays (2% cancelled, 2% on hold, 1% in process).
+
+**Sales by Territory (Bottom-Right):**
+- Regional sales performance is compared, where **EMEA (\$5.0M)** is the largest market, ahead of North America (\$3.9M), APAC, and Japan.
+
+**Navigation Controls (Top-Right):**
+- Buttons allow filtering by **company size (Large, Medium, Small)** and by **quarter (Q1–Q4)**, making the dashboard interactive and customizable for different business views.
+
+**Summary:**
+This dashboard is designed to provide executives with a **clear, top-level snapshot of sales performance**, enabling them to quickly evaluate overall KPIs, monitor trends, identify top products and markets, assess delivery performance, and compare regional sales. Its structured design ensures that the most critical insights are easy to spot at a glance, while supporting deeper exploration through filters and breakdowns.
+
 ### Key Findings
-- The analysis showed a consistent decline in performance throughout the years leaving the YoY% precentage declining significantly.
-- The overall performance of sales have been poor even within my metrics.
 
-### Business Impact  
-- With this informations, stakeholders can have better insights into the business performance, save time, reduce cost and device trategies to reverse this decline.
+**Overall Sales & Profit Decline**
 
-### Key Recommendations
-- Items such as classic cars should be focused more to generate more revenue.
-- Cut or negotiate underperforming channels and reallocate budget into to ROI vehicle campaigns or high-traffic partners.
+- Sales ($10.0M) and Profit ($1.7M) are both down by over 60% YoY, indicating a significant performance drop.
 
+**Strong Product Category Dependence**
 
+- Classic Cars ($3.9M) dominate sales, contributing far more than any other category, which signals high dependency on a single product line.
 
+**Top Markets Identified**
 
+- Madrid ($1.1M), San Rafael, and New York City are the strongest cities in terms of revenue, showing geographic concentration of sales.
+
+**Delivery Performance is Strong**
+
+- 93% of orders are shipped successfully, with very low levels of cancellations, delays, or issues.
+
+**Regional Performance Gaps**
+
+- EMEA ($5.0M) is the leading territory, while APAC and Japan significantly underperform (< $1M combined), indicating uneven regional distribution.
+
+### Recommendations
+
+**Address Sales & Profit Decline**
+
+- Investigate the cause of the sharp YoY drop — possible pricing pressures, reduced demand, or competitive threats.
+
+- Introduce promotional campaigns or bundling strategies to boost sales volumes.
+
+**Diversify Product Portfolio**
+
+- Reduce dependency on Classic Cars by promoting underperforming categories (e.g., Motorcycles, Planes, and Ships).
+
+- Consider product innovation or expansion to balance revenue streams.
+
+**Leverage Top-Performing Cities**
+
+- Double down on successful markets like Madrid and New York City with targeted marketing campaigns.
+
+- Explore what drives demand in these cities and replicate strategies in weaker markets.
+
+**Expand Regional Opportunities**
+
+- Strengthen presence in APAC and Japan, possibly through localized marketing, partnerships, or better distribution networks.
+
+- Reassess pricing strategies and customer preferences in these regions.
+
+**Maintain High Delivery Standards**
+
+- With 93% success in shipping, logistics and supply chain are a strength. Continue investing in operational efficiency to maintain customer trust.
+
+### Summary Insight:
+- The business is experiencing a sharp decline in overall performance, despite strong logistics and a few high-performing markets. By diversifying the product mix, expanding regional coverage, and replicating city-level successes, the company can stabilize and return to growth.
 
 
