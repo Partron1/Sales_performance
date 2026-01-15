@@ -108,13 +108,13 @@ Power query;
 
 This is a great way to better understand data by highlightining partterns, outliers or thresholds
 
-<img width="959" height="486" alt="data_inspection" src="https://github.com/user-attachments/assets/83918869-a153-4767-ae6f-c48a9b74882a" />
+![Conditional_formatting](images/data_inspection.png)
 
 ### Exploratory Data Analysis (EDA)
 
 - Key performance indicators (KPIs) including **total sales, total profit, total quantity and year-over-year(YoY%**) was established.
   
-<img width="958" height="487" alt="eda" src="https://github.com/user-attachments/assets/2339d769-d0fe-485c-8c59-2ed925d08b53" />
+![EDA](images/eda.png)
 
 ### Dashboard  
 A dynamic dashboard that lists and describe key plots: line chart,bar chart and histogram.
@@ -124,7 +124,7 @@ A dynamic dashboard that lists and describe key plots: line chart,bar chart and 
 - *Regional Sales Reps: To understand their performance and areas of opportunity.*
 - *Marketing Team: To identify campaign impact on sales.*
 
-<img width="796" height="377" alt="Dashboard" src="https://github.com/user-attachments/assets/3975d5b4-9719-4123-b969-b10a6e685441" />
+![Dashboard](images/Dashboard.png)
 
 
 This dashboard provides a comprehensive view of overall sales performance through a structured layout that prioritizes key metrics for quick decision-making.
