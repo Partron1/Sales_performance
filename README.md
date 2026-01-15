@@ -129,51 +129,34 @@ A dynamic dashboard that lists and describe key plots: line chart,bar chart and 
 
 This dashboard provides a comprehensive view of overall sales performance through a structured layout that prioritizes key metrics for quick decision-making.
 
-**KPIs (Top-Left Corner):**
-- The most important metrics: **Sales ($10.0M), Profit ($1.7M), and Quantity ($99.1K)** are displayed prominently at the top-left. They are highlighted with bold text, distinct font colors, and year-over-year performance indicators to immediately show current performance and trends.
+**KPIs (Top-Left Corner):** The most important metrics: **Sales ($10.0M), Profit ($1.7M), and Quantity ($99.1K)** are displayed prominently at the top-left. They are highlighted with bold text, distinct font colors, and year-over-year performance indicators to immediately show current performance and trends.
 
-**Sales Trend (Center):**
-- A line chart tracks **monthly sales performance**, helping to identify growth patterns, seasonality, and key peaks (e.g., November at $2.1M).
+**Sales Trend (Center):** A line chart tracks **monthly sales performance**, helping to identify growth patterns, seasonality, and key peaks (e.g., November at $2.1M).
 
-**Sales by Item (Left Section):**
-- A horizontal bar chart breaks down sales by product category, showing that **Classic Cars ($3.9M)** are the top contributor, followed by Vintage Cars and Motorcycles.
+**Sales by Item (Left Section):** A horizontal bar chart breaks down sales by product category, showing that **Classic Cars ($3.9M)** are the top contributor, followed by Vintage Cars and Motorcycles.
 
-**Top 5 Selling Cities (Center-Bottom):**
-- A bar chart highlights leading markets, with **Madrid ($1.1M)** leading, followed by San Rafael and New York City.
+**Top 5 Selling Cities (Center-Bottom):** A bar chart highlights leading markets, with **Madrid ($1.1M)** leading, followed by San Rafael and New York City.
 
-**Delivery Status (Top-Right):**
-- A progress breakdown of order fulfillment shows **93% of items shipped**, with minimal delays (2% cancelled, 2% on hold, 1% in process).
+**Delivery Status (Top-Right):** A progress breakdown of order fulfillment shows **93% of items shipped**, with minimal delays (2% cancelled, 2% on hold, 1% in process).
 
-**Sales by Territory (Bottom-Right):**
-- Regional sales performance is compared, where **EMEA (\$5.0M)** is the largest market, ahead of North America (\$3.9M), APAC, and Japan.
+**Sales by Territory (Bottom-Right):** Regional sales performance is compared, where **EMEA (\$5.0M)** is the largest market, ahead of North America (\$3.9M), APAC, and Japan.
 
-**Navigation Controls (Top-Right):**
-- Buttons allow filtering by **company size (Large, Medium, Small)** and by **quarter (Q1–Q4)**, making the dashboard interactive and customizable for different business views.
+**Navigation Controls (Top-Right):** Buttons allow filtering by **company size (Large, Medium, Small)** and by **quarter (Q1–Q4)**, making the dashboard interactive and customizable for different business views.
 
 **Summary:**
 This dashboard is designed to provide executives with a **clear, top-level snapshot of sales performance**, enabling them to quickly evaluate overall KPIs, monitor trends, identify top products and markets, assess delivery performance, and compare regional sales. Its structured design ensures that the most critical insights are easy to spot at a glance, while supporting deeper exploration through filters and breakdowns.
 
 ### Key Findings
 
-**Overall Sales & Profit Decline**
+**Overall Sales & Profit Decline:** Sales ($10.0M) and Profit ($1.7M) are both down by over 60% YoY, indicating a significant performance drop.
 
-- Sales ($10.0M) and Profit ($1.7M) are both down by over 60% YoY, indicating a significant performance drop.
+**Strong Product Category Dependence:** Classic Cars ($3.9M) dominate sales, contributing far more than any other category, which signals high dependency on a single product line.
 
-**Strong Product Category Dependence**
+**Top Markets Identified:** Madrid ($1.1M), San Rafael, and New York City are the strongest cities in terms of revenue, showing geographic concentration of sales.
 
-- Classic Cars ($3.9M) dominate sales, contributing far more than any other category, which signals high dependency on a single product line.
+**Delivery Performance is Strong:** 93% of orders are shipped successfully, with very low levels of cancellations, delays, or issues.
 
-**Top Markets Identified**
-
-- Madrid ($1.1M), San Rafael, and New York City are the strongest cities in terms of revenue, showing geographic concentration of sales.
-
-**Delivery Performance is Strong**
-
-- 93% of orders are shipped successfully, with very low levels of cancellations, delays, or issues.
-
-**Regional Performance Gaps**
-
-- EMEA ($5.0M) is the leading territory, while APAC and Japan significantly underperform (< $1M combined), indicating uneven regional distribution.
+**Regional Performance Gaps:** EMEA ($5.0M) is the leading territory, while APAC and Japan significantly underperform (< $1M combined), indicating uneven regional distribution.
 
 ### Recommendations
 
